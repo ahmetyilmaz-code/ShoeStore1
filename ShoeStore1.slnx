@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="ShoeStore1.Core/ShoeStore1.Core.csproj" />
+  <Project Path="ShoeStore1.Data/ShoeStore1.Data.csproj" />
+  <Project Path="ShoeStore1.Service/ShoeStore1.Service.csproj" Id="d3c01995-148c-4af1-864d-ea21a7d0b05a" />
+  <Project Path="ShoeStore1.Web/ShoeStore1.Web.csproj" Id="85c248e2-333e-4f67-9beb-db767c6a3359" />
+</Solution>

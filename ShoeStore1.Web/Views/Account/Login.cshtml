@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = "Giriş Yap";
+}
+@model LoginUserViewModel
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-5">
+        <div class="card shadow-lg border-0 rounded-lg">
+            <div class="card-header bg-dark text-white text-center py-3">
+                <h3 class="font-weight-light my-2">Üye Girişi</h3>
+            </div>
+            <div class="card-body p-4">
+
+                <!-- Hata Mesajlarını Göstereceğimiz Alan -->
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <form asp-action="Login" asp-controller="Account" method="post">
+
+                    <!-- E-Posta -->
+                    <div class="form-floating mb-3">
+                        <input asp-for="Email" class="form-control" placeholder="name@example.com" />
+                        <label asp-for="Email"></label>
+                        <span asp-validation-for="Email" class="text-danger small"></span>
+                    </div>
+
+                    <!-- Şifre -->
+                    <div class="form-floating mb-3">
+                        <input asp-for="Password" class="form-control" placeholder="Şifre" />
+                        <label asp-for="Password"></label>
+                        <span asp-validation-for="Password" class="text-danger small"></span>
+                    </div>
+
+                    <!-- Beni Hatırla -->
+                    <div class="form-check mb-3">
+                        <input asp-for="RememberMe" class="form-check-input" />
+                        <label asp-for="RememberMe" class="form-check-label"></label>
+                    </div>
+
+                    <!-- Giriş Butonu -->
+                    <div class="d-grid gap-2 mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg">Giriş Yap</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Alt Kısım: Kayıt Olma Linki -->
+            <div class="card-footer text-center py-3 bg-light">
+                <div class="small">
+                    Hesabınız yok mu? <a href="/Account/Register" class="fw-bold">Hemen Kayıt Olun!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <!-- Bu kısım, form validasyonu için gerekli JavaScript dosyalarını yükler. -->
+}
