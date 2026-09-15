@@ -372,17 +372,17 @@ ShoeStore1
 
 ### Ana Sayfa
 
-![Ana Sayfa](https://drive.google.com/file/d/13V1iiwiPp4cMZTwPBySyL_ZOwci45ZB5/view?usp=drive_link)
+![Ana Sayfa](https://drive.google.com/file/d/13V1iiwiPp4cMZTwPBySyL_ZOwci45ZB5/view?usp=sharing)
 
 ### Admin Ürün Listeleme
 
-![Admin Ana Panel](https://drive.google.com/file/d/1rEff093fDOA1weVbQcXY6HqCzefjRH7b/view?usp=drive_link)
-![Admin Ürün Düzenleme Paneli](https://drive.google.com/file/d/1J6cxZckFDCMtjU0T-lZCtJei7ZGg7Dsp/view?usp=drive_link)
-![Admin Ürün Düzenleme Panelindeki Stock Ekranı]([screenshots/products.png](https://drive.google.com/file/d/1rendHzP8iurekykjCkNnQBE-sZlC9VLD/view?usp=drive_link))
+![Admin Ana Panel](https://drive.google.com/file/d/1rEff093fDOA1weVbQcXY6HqCzefjRH7b/view?usp=sharing)
+![Admin Ürün Düzenleme Paneli](https://drive.google.com/file/d/1J6cxZckFDCMtjU0T-lZCtJei7ZGg7Dsp/view?usp=sharing)
+![Admin Ürün Düzenleme Panelindeki Stock Ekranı](https://drive.google.com/file/d/1rendHzP8iurekykjCkNnQBE-sZlC9VLD/view?usp=sharing)
 
 ### Sepet
 
-![Sepet](https://drive.google.com/file/d/1J-UqL6QRDnTe0ATstpNfQ72Fix3fevK6/view?usp=drive_link)
+![Sepet](https://drive.google.com/file/d/1J-UqL6QRDnTe0ATstpNfQ72Fix3fevK6/view?usp=sharing)
 
 ---
 
