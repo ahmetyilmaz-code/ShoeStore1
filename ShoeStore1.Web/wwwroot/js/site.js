@@ -68,11 +68,18 @@ function updateCart(cart) {
         let htmlItem = `
         <li>
             <div class="dropdown-item d-flex justify-content-between align-items-center">
-                 <div>
-                       <h6 class="my-0">${item.productName}</h6>
-                       <small class="text-muted">Numara: ${item.size} | Adet: ${item.quantity}</small>
-                  </div>
-                  <span class="text-success fw-bold">${item.price} ₺</span>
+                <div>
+                    <h6 class="my-0">${item.productName}</h6>
+                    <small class="text-muted">Numara: ${item.size} | Adet: ${item.quantity}</small>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="text-success fw-bold">${item.price} ₺</span>
+
+                    <button type="button"
+                            class="btn btn-sm btn-outline-danger btn-delete-cart"
+                            data-id="${item.id}">×
+                    </button>
+                </div>
             </div>
         </li>`;
         $cartDropdownMenu.append(htmlItem);
@@ -174,7 +181,7 @@ $(document).on('click', '.btn-add-cart', function (e) {
     var cartData = {
         cartId: 0,
         productId: productId,
-        size: 0,
+        size: selectedSize,
         userId: `${window.CurrentUser.Id}` 
     }
 
@@ -190,7 +197,7 @@ $(document).on('click', '.btn-add-cart', function (e) {
             $btn.removeClass('btn-outline-primary').addClass('btn-success');
 
             setTimeout(function () {
-                $btn.htlm(originalBtn);
+                $btn.html(originalBtn);
                 $btn.removeClass('btn-success').addClass('btn-outline-primary');
                 $btn.prop('disabled', false);
 
@@ -206,3 +213,26 @@ $(document).on('click', '.btn-add-cart', function (e) {
 
 
 });
+$(document).on('click', '.btn-delete-cart', function () {
+    debugger;
+    let cartItemId = $(this).data('id');
+
+    //console.log("Silinecek CartItem Id:", cartItemId);
+
+    $.ajax({
+        url: '/api/CartApi/DeleteCartItem',
+        type: 'POST', 
+        contentType: 'application/json',
+        data: JSON.stringify(cartItemId),
+        success: function () {
+            //console.log("Silme başarılı");
+            LoadUserCart();            
+        },
+        error: function (err) {
+            console.log("Silme hatası:", err);
+        }
+    });
+
+});
+
+

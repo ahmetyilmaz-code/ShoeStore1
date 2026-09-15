@@ -11,9 +11,12 @@ namespace ShoeStore1.Web.Controllers
     {
         readonly ProductService _productService;
         readonly CategoryService _categoryService;
-        public HomeController(IGenericRepository<Product> repositoryProduct, IGenericRepository<Category> repositoryCategory, IUnitOfWork unitOfWork)
+
+        public HomeController(
+            IGenericRepository<Product> repositoryProduct, IGenericRepository<Category> repositoryCategory, IGenericRepository<ProductSize> repositoryProductSize, IUnitOfWork unitOfWork)
         {
-            _productService = new ProductService(repositoryProduct, repositoryCategory, unitOfWork);
+            ProductSizeService productSizeService = new ProductSizeService(repositoryProductSize, unitOfWork);
+            _productService = new ProductService(repositoryProduct, repositoryCategory, unitOfWork, productSizeService);
             _categoryService = new CategoryService(repositoryCategory, unitOfWork);
         }
         public IActionResult Index()  // Index action method'u, genellikle uygulamanın ana sayfasını temsil eder. Bu method, HTTP GET isteği alındığında çalışır ve kullanıcıya ana sayfa içeriğini döndürür.

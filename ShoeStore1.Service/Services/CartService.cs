@@ -6,12 +6,11 @@ using ShoeStore1.Service.Helpers;
 namespace ShoeStore1.Service.Services
 {
     public class CartService : GenericService<Cart>
-    {
-        public CartService(IGenericRepository<Cart> repository, IUnitOfWork unitOfWork) : base(repository, unitOfWork)
+    {       
+        public CartService(IGenericRepository<Cart> repositoryCart, IUnitOfWork unitOfWork) : base(repositoryCart, unitOfWork)
         {
 
         }
-
         public CartDto GetCart(string UserId)
         {
             var cart = base.Where(x => x.AppUserId == UserId && !x.IsDeleted).FirstOrDefault();
@@ -27,6 +26,8 @@ namespace ShoeStore1.Service.Services
             cart = base.Where(x => x.AppUserId == UserId && !x.IsDeleted).FirstOrDefault();
             return cart.ToDto<CartDto>();
         }
+
+
 
     }
 }

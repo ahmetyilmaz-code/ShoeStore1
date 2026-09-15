@@ -1,0 +1,71 @@
+﻿@model ShoeStore1.Web.Models.ViewModels.ProductSizeViewModel
+
+@{
+    ViewData["Title"] = "Beden & Stok Yönetimi";
+    string[] sizes = { "38", "39", "40", "41", "42", "43", "44", "45" };
+}
+
+<div class="container mt-4">
+
+    <h2>👟 Beden & Stok Yönetimi</h2>
+
+    <hr />
+
+    <h4>@Model.ProductName</h4>
+
+    <form asp-action="SaveProductSizes" method="post">
+
+        <input type="hidden"
+               asp-for="ProductId" />
+
+        <table class="table table-bordered mt-3">
+
+            <thead>
+                <tr>
+                    <th>Beden</th>
+                    <th>Stok</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @foreach (var size in sizes)
+                {
+                    var existingSize = Model.Sizes?
+                        .FirstOrDefault(x => x.Size == size);
+
+                    <tr>
+                        <td>
+                            <strong>@size</strong>
+
+                            <input type="hidden"
+                                   name="Sizes[@Array.IndexOf(sizes, size)].Size"
+                                   value="@size" />
+                        </td>
+
+                        <td>
+                            <input type="number"
+                                   name="Sizes[@Array.IndexOf(sizes, size)].Stock"
+                                   class="form-control"
+                                   value="@(existingSize?.Stock ?? 0)"
+                                   min="0" />
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+
+        <button type="submit" class="btn btn-success">
+            💾 Kaydet
+        </button>
+
+        <a href="/Admin/EditProducts"
+           class="btn btn-secondary">
+            ↩ Geri
+        </a>
+
+    </form>
+
+</div>

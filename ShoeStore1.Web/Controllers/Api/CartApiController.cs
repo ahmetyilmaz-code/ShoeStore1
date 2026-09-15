@@ -14,11 +14,14 @@ namespace ShoeStore1.Web.Controllers.Api
     {
         CartService _cartService;
         ProductService _productService;
+        IGenericRepository<ProductSize> _productSizeRepository;
 
-        public CartApiController(IGenericRepository<Cart> repositoryCart, IGenericRepository<CartItem> repositoryCarItem, IGenericRepository<Product> repositoryProduct, IGenericRepository<Category> repositoryCategory, IUnitOfWork unitOfWork)
+        public CartApiController(IGenericRepository<Cart> repositoryCart, IGenericRepository<CartItem> repositoryCarItem, IGenericRepository<Product> repositoryProduct, IGenericRepository<Category> repositoryCategory, IGenericRepository<ProductSize> repositoryProductSize, IUnitOfWork unitOfWork)
         {
-            _cartService = new CartService(repositoryCart, repositoryCarItem, unitOfWork);
-            _productService = new ProductService(repositoryProduct, repositoryCategory, unitOfWork);
+            _cartService = new CartService(repositoryCart, repositoryCarItem, repositoryProductSize, unitOfWork);
+            ProductSizeService productSizeService = new ProductSizeService(repositoryProductSize, unitOfWork);
+            _productService = new ProductService(repositoryProduct, repositoryCategory, unitOfWork, productSizeService);
+            _productSizeRepository = repositoryProductSize;
         }
         [HttpGet("GetUserCart")]
         [Route("[action]/{userId}")]
@@ -34,12 +37,14 @@ namespace ShoeStore1.Web.Controllers.Api
                 {
                     ProductDTo product = _productService.GeyById(cartItems[i].ProductId);
                     totalPrice += product.Price;
+                    var productSize = _productSizeRepository.GetById(cartItems[i].ProductSizeId);
                     cartItemViewModels.Add(new CartItemViewModel
                     {
                         Price = product.Price.ToString(),
                         ProductName = product.Name,
                         Quantity = "1",
-                        Size = "45"
+                        Id = cartItems[i].Id,                      
+                        Size = productSize.Size,
                     });
 
                 }
@@ -61,6 +66,16 @@ namespace ShoeStore1.Web.Controllers.Api
             _cartService.AddCart(model);
             return Ok();
         }
+
+        [HttpPost("DeleteCartItem")]
+        public IActionResult DeleteCartItem([FromBody] int id)
+        {
+            //Console.WriteLine($"Controller ID: {id}");
+            _cartService.DeleteCartItem(id);
+            return Ok();
+        }
+
+
 
     }
 }

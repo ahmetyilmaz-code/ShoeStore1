@@ -78,7 +78,8 @@ builder.Services.AddIdentity<AppUser, AppRole>(options =>
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 //Core katmanından IGenericRepository isteyene Data katmanından GenericRepository paylaş
 builder.Services.AddScoped<IUnitOfWork,UnitofWork>();
-
+builder.Services.AddScoped<ShoeStore1.Web.Models.Services.ProductService>();
+builder.Services.AddScoped<ShoeStore1.Web.Models.Services.ProductSizeService>();
 builder.Services.AddControllersWithViews(); // Controller'ları ve Views'ları oluştur.
 //builder.Services.AddControllersWithViews(); ASP.NET Core'a MVC yapısını kullanacağını bildirerek
 //Controller'ları,Action'ları ve View'ları sisteme ekler ve uygulamanın Controller üzerinden gelen istekleri işleyip
@@ -120,7 +121,7 @@ app.UseAuthorization(); //doğrulanmış kullanıcının hangi sayfa veya işlem
 
 app.MapControllerRoute(
     name:"default",
-    pattern: "{controller=Home}/{action=Index}"
+    pattern: "{controller=Home}/{action=Index}/{id?}"
     );
 /* app.MapControllerRoute() metodu, uygulamanın URL yönlendirme kurallarını tanımlar.
  Bu örnekte, varsayılan olarak "Home" controller'ı ve "Index" action'ı kullanılacak şekilde bir yönlendirme kuralı oluşturulmuştur.

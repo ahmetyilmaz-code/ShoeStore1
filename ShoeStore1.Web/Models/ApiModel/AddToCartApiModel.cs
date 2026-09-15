@@ -1,6 +1,4 @@
-﻿using System.Reflection.Metadata.Ecma335;
-
-namespace ShoeStore1.Web.Models.ApiModel
+﻿namespace ShoeStore1.Web.Models.ApiModel
 {
     public class AddToCartApiModel
     {

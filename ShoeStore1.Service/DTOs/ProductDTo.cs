@@ -1,7 +1,4 @@
-﻿using ShoeStore1.Core.Entities;
-using System.Runtime.InteropServices;
-
-namespace ShoeStore1.Service.DTOs
+﻿namespace ShoeStore1.Service.DTOs
 {
     public class ProductDTo
     //Service katmanında GetById Product'tan geriye direk

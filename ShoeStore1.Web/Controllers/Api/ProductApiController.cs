@@ -11,11 +11,12 @@ namespace ShoeStore1.Web.Controllers.Api
     public class ProductApiController : ControllerBase
     {
         ProductService _productService;
-        public ProductApiController(IGenericRepository<Product> repositoryProduct, IGenericRepository<Category> repositoryCategory, IUnitOfWork unitOfWork)
+        public ProductApiController(IGenericRepository<Product> repositoryProduct, IGenericRepository<Category> repositoryCategory, IGenericRepository<ProductSize> repositoryProductSize, IUnitOfWork unitOfWork)
         {
-            _productService = new ProductService(repositoryProduct, repositoryCategory, unitOfWork);
+            ProductSizeService productSizeService = new ProductSizeService(repositoryProductSize, unitOfWork);
+            _productService = new ProductService(repositoryProduct,repositoryCategory,unitOfWork,productSizeService);
         }
-        
+
         [HttpPost("FilterProducts")]
         public IActionResult FilterProducts([FromBody] ProductApiModel model)
         {

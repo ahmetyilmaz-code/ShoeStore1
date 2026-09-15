@@ -1,6 +1,7 @@
 ﻿using ShoeStore1.Core.Entities;
 using ShoeStore1.Core.Repositories;
 using ShoeStore1.Service.DTOs;
+using ShoeStore1.Service.Services;
 using ShoeStore1.Web.Models.ApiModel;
 using ShoeStore1.Web.Models.ViewModels;
 
@@ -10,10 +11,12 @@ namespace ShoeStore1.Web.Models.Services
     {
         readonly Service.Services.ProductService _productService;
         readonly CategoryService _categoryService;
-        public ProductService(IGenericRepository<Product> repositoryProduct, IGenericRepository<Category> repositoryCategory, IUnitOfWork unitOfWork)
+        private readonly ProductSizeService _productSizeService;
+        public ProductService(IGenericRepository<Product> repositoryProduct, IGenericRepository<Category> repositoryCategory, IUnitOfWork unitOfWork, ProductSizeService productSizeService)
         {
             _productService = new Service.Services.ProductService(repositoryProduct, unitOfWork);
             _categoryService = new CategoryService(repositoryCategory, unitOfWork);
+            _productSizeService = productSizeService;
         }
 
         public HomeViewModel GetHomeViewProductModel()
@@ -34,7 +37,7 @@ namespace ShoeStore1.Web.Models.Services
                     ImageUrl = feature.ImageUrl,
                     Name = feature.Name,
                     Price = feature.Price.ToString(),
-                    Sizes = new List<int> { 38, 39, 40, 41, 42 }
+                    Sizes = _productSizeService.GetProductSizes(feature.Id)
                 });
             }
             foreach (var nonfeature in nonFeatured)
@@ -47,7 +50,7 @@ namespace ShoeStore1.Web.Models.Services
                     ImageUrl = nonfeature.ImageUrl,
                     Name = nonfeature.Name,
                     Price = nonfeature.Price.ToString(),
-                    Sizes = new List<int> { 38, 39, 40, 41, 42 }
+                    Sizes = _productSizeService.GetProductSizes(nonfeature.Id)
                 });
             }
 
@@ -85,7 +88,7 @@ namespace ShoeStore1.Web.Models.Services
                     ImageUrl = item.ImageUrl,
                     Name = item.Name,   
                     Price = item.Price.ToString(),
-                    Sizes = new List<int> { 38, 39, 40, 41, 42 },
+                    Sizes = _productSizeService.GetProductSizes(item.Id),
                     Category = _categoryService.GetByIdForName(item.CategoryId)
                 });
             }
@@ -97,7 +100,33 @@ namespace ShoeStore1.Web.Models.Services
         {
             return _productService.GetById(id); 
         }
+        public List<ProductDTo> GetAll()
+        {
+            return _productService.GetAll();
+        }
+        public string GetCategoryName(int categoryId)
+        {
+            return _categoryService.GetByIdForName(categoryId);
+        }
+        public List<AdminProductViewModel> GetAdminProducts()
+        {
+            var products = _productService.GetAll();
 
+            List<AdminProductViewModel> result = new List<AdminProductViewModel>();
 
+            foreach (var product in products)
+            {
+                result.Add(new AdminProductViewModel
+                {
+                    Id = product.Id,
+                    Name = product.Name,
+                    CategoryName = _categoryService.GetByIdForName(product.CategoryId),
+                    Price = product.Price,
+                    ImageUrl = product.ImageUrl
+                });
+            }
+
+            return result;
+        }
     }
 }
