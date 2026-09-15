@@ -370,19 +370,26 @@ ShoeStore1
 
 > Projenin kullanıcı ve admin arayüzüne ait ekran görüntüleri aşağıdaki bölümlere eklenebilir.
 
-### Ana Sayfa
+🏠 Ana Sayfa
 
-![Ana Sayfa](https://drive.google.com/file/d/13V1iiwiPp4cMZTwPBySyL_ZOwci45ZB5/view?usp=sharing)
+<p align="center"> <img src="screenshots/home.png" width="850" alt="Ana Sayfa"> </p>
 
-### Admin Ürün Listeleme
+🛠️ Admin Paneli
+Admin Ana Panel
 
-![Admin Ana Panel](https://drive.google.com/file/d/1rEff093fDOA1weVbQcXY6HqCzefjRH7b/view?usp=sharing)
-![Admin Ürün Düzenleme Paneli](https://drive.google.com/file/d/1J6cxZckFDCMtjU0T-lZCtJei7ZGg7Dsp/view?usp=sharing)
-![Admin Ürün Düzenleme Panelindeki Stock Ekranı](https://drive.google.com/file/d/1rendHzP8iurekykjCkNnQBE-sZlC9VLD/view?usp=sharing)
+<p align="center"> <img src="screenshots/admin-panel.png" width="850" alt="Admin Ana Panel"> </p>
 
-### Sepet
+Ürün Düzenleme Paneli
 
-![Sepet](https://drive.google.com/file/d/1J-UqL6QRDnTe0ATstpNfQ72Fix3fevK6/view?usp=sharing)
+<p align="center"> <img src="screenshots/admin-product-edit.png" width="850" alt="Admin Ürün Düzenleme Paneli"> </p>
+
+Ürün Stok Yönetimi
+
+<p align="center"> <img src="screenshots/admin-stock.png" width="850" alt="Admin Stok Yönetimi"> </p>
+
+🛒 Sepet
+
+<p align="center"> <img src="screenshots/cart.png" width="850" alt="Sepet"> </p>
 
 ---
 
