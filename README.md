@@ -368,19 +368,21 @@ ShoeStore1
 
 ## 📸 Ekran Görüntüleri
 
-> Projenin kullanıcı arayüzüne ait ekran görüntüleri aşağıdaki bölümlere eklenebilir.
+> Projenin kullanıcı ve admin arayüzüne ait ekran görüntüleri aşağıdaki bölümlere eklenebilir.
 
 ### Ana Sayfa
 
-![Ana Sayfa](screenshots/home.png)
+![Ana Sayfa](https://drive.google.com/file/d/13V1iiwiPp4cMZTwPBySyL_ZOwci45ZB5/view?usp=drive_link)
 
-### Ürün Listeleme
+### Admin Ürün Listeleme
 
-![Ürün Listeleme](screenshots/products.png)
+![Admin Ana Panel](https://drive.google.com/file/d/1rEff093fDOA1weVbQcXY6HqCzefjRH7b/view?usp=drive_link)
+![Admin Ürün Düzenleme Paneli](https://drive.google.com/file/d/1J6cxZckFDCMtjU0T-lZCtJei7ZGg7Dsp/view?usp=drive_link)
+![Admin Ürün Düzenleme Panelindeki Stock Ekranı]([screenshots/products.png](https://drive.google.com/file/d/1rendHzP8iurekykjCkNnQBE-sZlC9VLD/view?usp=drive_link))
 
 ### Sepet
 
-![Sepet](screenshots/cart.png)
+![Sepet](https://drive.google.com/file/d/1J-UqL6QRDnTe0ATstpNfQ72Fix3fevK6/view?usp=drive_link)
 
 ---
 
