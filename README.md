@@ -381,11 +381,11 @@ Admin Ana Panel
 
 Ürün Düzenleme Paneli
 
-<p align="center"> <img src="screenshots/admin-product-edit.png" width="850" alt="Admin Ürün Düzenleme Paneli"> </p>
+<p align="center"> <img src="screenshots/product-edit.png" width="850" alt="Admin Ürün Düzenleme Paneli"> </p>
 
 Ürün Stok Yönetimi
 
-<p align="center"> <img src="screenshots/admin-stock.png" width="850" alt="Admin Stok Yönetimi"> </p>
+<p align="center"> <img src="screenshots/stock.png" width="850" alt="Admin Stok Yönetimi"> </p>
 
 🛒 Sepet
 
